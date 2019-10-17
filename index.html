@@ -40,9 +40,9 @@
 				</section>
 
 				<section>
-					<section><h2>What I'm gonna talk about</h2></section>
+					<section><h3>What I'm gonna talk about</h3></section>
 					<section>
-						<h3>Usual definition</h3>
+						<h4>Usual definition</h4>
 						<p>
 							Metadatabase is a database model for
 						<ul>
@@ -51,14 +51,14 @@
 							<li class="fragment fade-down">distributed data processing</li>
 						</ul>
 						</p>
-						<p><h3><span class="fragment fade-left">Metadata</span><span class="fragment fade-left">base</span></h3></p>
+						<p><h4><span class="fragment fade-left">Metadata</span><span class="fragment fade-left">base</span></h4></p>
 
 						<aside class="notes">
 							Normally, metadatabases are a term used for handling metadata, handling relationships between multiple databases on a single system or handling relationships between multiple distributed servers. In this context, the term metadatabase is coined from two terms: metadata and database.
 						</aside>
 					</section>
 					<section>
-						<h3>Usage in CMS development</h3>
+						<h4>Usage in CMS development</h4>
 						<p>
 							Metadatabase is a database model for
 						<ul>
@@ -66,7 +66,7 @@
 							<li class="fragment fade-down">managing those models efficiently</li>
 						</ul>
 						</p>
-						<p><h3><span class="fragment fade-down">Meta</span><span class="fragment fade-down">database</span></h3></p>
+						<p><h4><span class="fragment fade-down">Meta</span><span class="fragment fade-down">database</span></h4></p>
 
 						<aside class="notes">
 							And while this is completely valid and true, I'm actually going to talk about a different use of the word: as a database model used for creating complex content models, and managing those models efficiently. In this context, the prefix meta is used in its purer form: the Greek word meaning after or beyond. So, a metadatabase actually goes beyond the conventional database models. Let's see how.
@@ -76,7 +76,7 @@
 
 				<section>
 					<section>
-						<h2>Tenets of Web 2.0*</h2>
+						<h3>Tenets of Web 2.0*</h3>
 						<p>
 							<ul>
 								<li class="fragment fade-down">rich user experience</li>
@@ -102,7 +102,7 @@
 					</section>
 
 					<section>
-						<h3>One basic thought:</h3>
+						<h4>One basic thought:</h4>
 
 						<blockquote class="fragment fade-down">
 							"Content is King"<br>
@@ -118,17 +118,17 @@
 
 				<section>
 					<section>
-						<h2>Content and Content Management Systems</h2>
+						<h3>Content and Content Management Systems</h3>
 					</section>
 
 					<section>
-						<h4>What is content?</h4>
+						<h5>What is content?</h5>
 
-						<h3 class="fragment fade-down">Every single part of a page.</h3>
+						<h4 class="fragment fade-down">Every single part of a page.</h4>
 					</section>
 
 					<section>
-						<h3>Content Management Systems</h3>
+						<h4>Content Management Systems</h4>
 
 						<p class="fragment fade-down">Enable <u>dynamic content</u> of a page</p>
 
@@ -138,7 +138,7 @@
 					</section>
 
 					<section>
-						<h3>Types of content</h3>
+						<h4>Types of content</h4>
 
 						<p class="fragment fade-down">Landing pages</p>
 
@@ -152,7 +152,7 @@
 					</section>
 
 					<section>
-						<h3>Structure of a basic content type - Article</h3>
+						<h4>Structure of a basic content type - Article</h4>
 
 						<ul>
 							<li class="fragment fade-down">Title</li>
@@ -161,7 +161,7 @@
 							<li class="fragment fade-down">Metadata</li>
 						</ul>
 
-						<h3 class="fragment fade-down">Attributes</h3>
+						<h4 class="fragment fade-down">Attributes</h4>
 
 						<aside class="notes">
 							<p>All of the parts which build a single content type are called attributes.</p>
@@ -171,7 +171,7 @@
 
 				<section>
 					<section>
-						<h2>Conventional CMS database model</h2>
+						<h3>Conventional CMS database model</h3>
 
 						<table>
 							<thead>
@@ -210,7 +210,7 @@
 					</section>
 
 					<section>
-						<h2>Is that enough?</h2>
+						<h3>Is that enough?</h3>
 
 						<ul>
 							<li class="fragment fade-down">Add new content types?</li>
@@ -228,7 +228,7 @@
 
 				<section>
 					<section>
-						<h2>Metadatabase model</h2>
+						<h3>Metadatabase model</h3>
 
 						<p>A developer shouldn't be restricted by the database model.</p>
 
@@ -236,7 +236,7 @@
 					</section>
 
 					<section>
-						<h3>Table types</h3>
+						<h4>Table types</h4>
 
 						<table>
 							<thead>
@@ -267,7 +267,7 @@
 					</section>
 
 					<section>
-						<h3>Advantages of this approach</h3>
+						<h4>Advantages of this approach</h4>
 
 						<ul>
 							<li class="fragment fade-down">easy, rapid prototyping</li>
@@ -285,7 +285,7 @@
 
 				<section>
 					<section>
-						<h2>Relations</h2>
+						<h3>Relations</h3>
 
 						<ul>
 							<li class="fragment fade-down">Parent-child</li>
@@ -297,7 +297,7 @@
 					</section>
 
 					<section>
-						<h3>Conventional database model</h3>
+						<h4>Conventional database model</h4>
 
 						<p>New field in the table</p>
 
@@ -305,7 +305,7 @@
 					</section>
 
 					<section>
-						<h3>Metadatabase CMS</h3>
+						<h4>Metadatabase CMS</h4>
 
 						<p>Relation is an attribute, therefore you only need to define it in your content type</p>
 					</section>
@@ -313,7 +313,7 @@
 
 				<section>
 					<section>
-						<h2>Why choose a CMS with a metadatabase</h2>
+						<h3>Why choose a CMS with a metadatabase</h3>
 
 						<ul>
 							<li class="fragment fade-down">change the way your content creates the big picture</li>
@@ -322,7 +322,7 @@
 					</section>
 
 					<section>
-						<h3><span class="fragment fade-out" data-fragment-index="4">Pros</span><span class="fragment fade-down" data-fragment-index="5">Cons</span> of CMS with a metadatabase</h3>
+						<h4><span class="fragment fade-out" data-fragment-index="4">Pros</span><span class="fragment fade-down" data-fragment-index="5">Cons</span> of CMS with a metadatabase</h4>
 
 						<ul>
 							<li class="fragment fade-down" data-fragment-index="1">complex data model</li>
@@ -339,7 +339,7 @@
 					</section>
 
 					<section>
-						<h2>Examples of open-source Symfony CMS solutions with a metadatabase</h2>
+						<h3>Examples of open-source Symfony CMS solutions with a metadatabase</h3>
 
 						<img class="fragment fade-down" src="img/Pimcore-logo.png" width="300" />
 						<img class="fragment fade-down" src="img/ez_publish-logo.png" width="300">
@@ -351,7 +351,7 @@
 				</section>
 
 				<section>
-					<h2>Tenets of Web 2.0</h2>
+					<h3>Tenets of Web 2.0</h3>
 					<p>
 						<ul>
 							<li><u>rich user experience</u></li>
