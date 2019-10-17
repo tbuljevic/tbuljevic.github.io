@@ -4,11 +4,11 @@
 		<meta charset="utf-8">
 		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
 
-		<title>reveal.js</title>
+		<title>Metadatabases: A Swiss knife in your dev toolbox</title>
 
 		<link rel="stylesheet" href="css/reset.css">
 		<link rel="stylesheet" href="css/reveal.css">
-		<link rel="stylesheet" href="css/theme/black.css">
+		<link rel="stylesheet" href="css/theme/solarized.css">
 
 		<!-- Theme used for syntax highlighting of code -->
 		<link rel="stylesheet" href="lib/css/monokai.css">
@@ -25,8 +25,357 @@
 	<body>
 		<div class="reveal">
 			<div class="slides">
-				<section>Slide 1</section>
-				<section>Slide 2</section>
+				<section>
+					<h2>Metadatabases: A Swiss knife in your dev toolbox</h2>
+
+					<img src="img/swiss-army-knife.png" />
+
+					<p>Tomislav Buljević</p>
+
+					<p>@tomebuljevic</p>
+
+					<aside class="notes">
+
+					</aside>
+				</section>
+
+				<section>
+					<section><h2>What I'm gonna talk about</h2></section>
+					<section>
+						<h3>Usual definition</h3>
+						<p>
+							Metadatabase is a database model for
+						<ul>
+							<li class="fragment fade-down">metadata management</li>
+							<li class="fragment fade-down">global query of independent databases</li>
+							<li class="fragment fade-down">distributed data processing</li>
+						</ul>
+						</p>
+						<p><h3><span class="fragment fade-left">Metadata</span><span class="fragment fade-left">base</span></h3></p>
+
+						<aside class="notes">
+							Normally, metadatabases are a term used for handling metadata, handling relationships between multiple databases on a single system or handling relationships between multiple distributed servers. In this context, the term metadatabase is coined from two terms: metadata and database.
+						</aside>
+					</section>
+					<section>
+						<h3>Usage in CMF development</h3>
+						<p>
+							Metadatabase is a database model for
+						<ul>
+							<li class="fragment fade-down">creating complex content models</li>
+							<li class="fragment fade-down">managing those models efficiently</li>
+						</ul>
+						</p>
+						<p><h3><span class="fragment fade-down">Meta</span><span class="fragment fade-down">database</span></h3></p>
+
+						<aside class="notes">
+							And while this is completely valid and true, I'm actually going to talk about a different use of the word: as a database model used for creating complex content models, and managing those models efficiently. In this context, the prefix meta is used in its purer form: the Greek word meaning after or beyond. So, a metadatabase actually goes beyond the conventional database models. Let's see how.
+						</aside>
+					</section>
+				</section>
+
+				<section>
+					<section>
+						<h2>Tenets of Web 2.0*</h2>
+						<p>
+							<ul>
+								<li class="fragment fade-down">rich user experience</li>
+								<li class="fragment fade-down">user participation</li>
+								<li class="fragment fade-down">dynamic content</li>
+								<li class="fragment fade-down">metadata</li>
+								<li class="fragment fade-down">Web standards</li>
+								<li class="fragment fade-down">scalability</li>
+							</ul>
+						</p>
+
+						<p class="fragment fade-down"><small>* Best, David, 2006. Web 2.0 - Next Big Thing or Next Big Internet Bubble? Lecture Web Information Systems. Technische Universiteit Eindhoven.</small></p>
+
+						<aside class="notes">
+							David Best - lecture from 2006 - basis of Web2.0:
+							<ul><li>rich user experience - websites should behave similarly to desktop applications</li>
+								<li>user participation - web is now a bidirectional medium</li>
+								<li>dynamic content - every entry is uniquely identifiable</li>
+								<li>metadata - semantic enrichment of content</li>
+								<li>Web standards - using W3C recommendations as much as possible</li>
+								<li>scalability - the applications should scale easily</li></ul>
+						</aside>
+					</section>
+
+					<section>
+						<h3>One basic thought:</h3>
+
+						<blockquote class="fragment fade-down">
+							"Content is King"<br>
+
+							-- Bill Gates, 1996
+						</blockquote>
+
+						<aside class="notes">
+							The quality of content on a web application defines the quality of that application more than anything else, really. While other aspects of the user experience carry their own weight in developing a web app, content is what makes it shine.
+						</aside>
+					</section>
+				</section>
+
+				<section>
+					<section>
+						<h2>Content and Content Management Systems</h2>
+					</section>
+
+					<section>
+						<h4>What is content?</h4>
+
+						<h3 class="fragment fade-down">Every single part of a page.</h3>
+					</section>
+
+					<section>
+						<h3>Content Management Systems</h3>
+
+						<p class="fragment fade-down">Enable <u>dynamic content</u> of a page</p>
+
+						<p class="fragment fade-down">database model</p>
+
+						<p class="fragment fade-down">PHP API - bridge between user input and database storage</p>
+					</section>
+
+					<section>
+						<h3>Types of content</h3>
+
+						<p class="fragment fade-down">Landing pages</p>
+
+						<p class="fragment fade-down">Articles</p>
+
+						<p class="fragment fade-down">Images</p>
+
+						<p class="fragment fade-down">Documents</p>
+
+						<p class="fragment fade-down">...</p>
+					</section>
+
+					<section>
+						<h3>Structure of a basic content type - Article</h3>
+
+						<ul>
+							<li class="fragment fade-down">Title</li>
+							<li class="fragment fade-down">Image</li>
+							<li class="fragment fade-down">Body - WYSIWYG editor</li>
+							<li class="fragment fade-down">Metadata</li>
+						</ul>
+
+						<h3 class="fragment fade-down">Attributes</h3>
+
+						<aside class="notes">
+							<p>All of the parts which build a single content type are called attributes.</p>
+						</aside>
+					</section>
+				</section>
+
+				<section>
+					<section>
+						<h2>Conventional CMS database model</h2>
+
+						<table>
+							<thead>
+								<tr>
+									<th>article</th>
+								</tr>
+							</thead>
+							<tbody>
+								<tr>
+									<td>id</td>
+								</tr>
+								<tr>
+									<td>title</td>
+								</tr>
+								<tr>
+									<td>image</td>
+								</tr>
+								<tr>
+									<td>body</td>
+								</tr>
+								<tr>
+									<td>publish_date</td>
+								</tr>
+								<tr>
+									<td>author_name</td>
+								</tr>
+								<tr>
+									<td>...</td>
+								</tr>
+							</tbody>
+						</table>
+
+						<aside class="notes">
+							<p>In a conventional CMS database model, each of the attributes has its own column in the content type table.</p>
+						</aside>
+					</section>
+
+					<section>
+						<h2>Is that enough?</h2>
+
+						<ul>
+							<li class="fragment fade-down">Add new content types?</li>
+							<li class="fragment fade-down">Change existing content types?</li>
+							<li class="fragment fade-down">Handle relations between content types?</li>
+						</ul>
+
+						<p class="fragment fade-down">How much time is it going to take?</p>
+
+						<aside class="notes">
+							<p>Each project is unique. Each one is made to fit the client's needs. So, each one comes with its own set of requests and issues. In a choice of a CMS, one must inevitably ask themselves if they can add new content types easily, change existing content types, handle relations between content types? And of course, how much time it's going to take.</p>
+						</aside>
+					</section>
+				</section>
+
+				<section>
+					<section>
+						<h2>Metadatabase model</h2>
+
+						<p>A developer shouldn't be restricted by the database model.</p>
+
+						<p>Instead, the database model should be able to adapt to the project needs.</p>
+					</section>
+
+					<section>
+						<h3>Table types</h3>
+
+						<table>
+							<thead>
+								<tr>
+									<th>Table</th>
+									<th>Usage</th>
+								</tr>
+							</thead>
+							<tbody>
+							<tr class="fragment fade-down">
+								<td>content_type</td>
+								<td>Type of custom content defined in the administration</td>
+							</tr>
+							<tr class="fragment fade-down">
+								<td>content_attribute</td>
+								<td>Type of attribute available for adding</td>
+							</tr>
+							<tr class="fragment fade-down">
+								<td>content_definition</td>
+								<td>All the content types and their attributes</td>
+							</tr>
+							<tr class="fragment fade-down">
+								<td>content_object</td>
+								<td>Single instances of objects with their attributes</td>
+							</tr>
+							</tbody>
+						</table>
+					</section>
+
+					<section>
+						<h3>Advantages of this approach</h3>
+
+						<ul>
+							<li class="fragment fade-down">easy, rapid prototyping</li>
+							<li class="fragment fade-down">subsequent changes in the data model of the project are handled easily</li>
+							<li class="fragment fade-down">relations are easy to create and, in fact, remove</li>
+							<li class="fragment fade-down">shorter development time</li>
+							<li class="fragment fade-down">content types can be created by non-technical personnel</li>
+						</ul>
+
+						<aside class="notes">
+							<p>The last point comes with a caution label attached. :D</p>
+						</aside>
+					</section>
+				</section>
+
+				<section>
+					<section>
+						<h2>Relations</h2>
+
+						<ul>
+							<li class="fragment fade-down">Parent-child</li>
+							<li class="fragment fade-down">One-to-Many/Many-to-One</li>
+							<li class="fragment fade-down">Many-to-Many</li>
+						</ul>
+
+						<p class="fragment fade-down">Part of the natural flow of data model design</p>
+					</section>
+
+					<section>
+						<h3>Conventional database model</h3>
+
+						<p>New field in the table</p>
+
+						<p>New table - bridge between the two content types</p>
+					</section>
+
+					<section>
+						<h3>Metadatabase CMS</h3>
+
+						<p>Relation is an attribute, therefore you only need to define it in your content type</p>
+					</section>
+				</section>
+
+				<section>
+					<section>
+						<h2>Why choose a CMS with a metadatabase</h2>
+
+						<ul>
+							<li class="fragment fade-down">change the way your content creates the big picture</li>
+							<li class="fragment fade-down">separate your content into smaller logical chunks</li>
+						</ul>
+					</section>
+
+					<section>
+						<h3><span class="fragment fade-out" data-fragment-index="4">Pros</span><span class="fragment fade-down" data-fragment-index="5">Cons</span> of CMS with a metadatabase</h3>
+
+						<ul>
+							<li class="fragment fade-down" data-fragment-index="1">complex data model</li>
+							<li class="fragment fade-down" data-fragment-index="2">beyond the scope of simple presentation page(s)</li>
+							<li class="fragment fade-down" data-fragment-index="3">adds a level of complexity to development</li>
+							<li class="fragment fade-down" data-fragment-index="6">spoils developers</li>
+						</ul>
+
+						<aside class="notes">
+							<p>Such CMSs often have complex data models which enable a developer to create a data model fitting their clients needs perfectly. Also, when developing such a solution, you're prepared to go beyond the scope of simple presentation pages, because you can create a lot of different content types. This adds a level of complexity needed for large-scale projects.</p>
+
+							<p>With a complex data model comes the danger of not seeing the tree for the forest, especially if you're a beginner. If you mostly work with simple presentation page(s), or do not need a complex content model, you're far better off choosing simpler CMS solutions. And lastly, developers who work on such systems for a long time become spoiled. Because the possibilities are endless, you'll think less of other solutions which have a simpler approach.</p>
+						</aside>
+					</section>
+
+					<section>
+						<h2>Examples of open-source Symfony CMS solutions with a metadatabase</h2>
+
+						<img class="fragment fade-down" src="img/Pimcore-logo.png" width="300" />
+						<img class="fragment fade-down" src="img/ez_publish-logo.png" width="300">
+
+						<aside class="notes">
+							<p>As a developer familiar with Symfony, I have worked with these two CMSs, with Pimcore being the CMS of choice lately. Both have their pros and cons, but that's a topic for a different talk. :D</p>
+						</aside>
+					</section>
+				</section>
+
+				<section>
+					<h2>Tenets of Web 2.0</h2>
+					<p>
+						<ul>
+							<li><u>rich user experience</u></li>
+							<li><u>user participation</u></li>
+							<li><u>dynamic content</u></li>
+							<li><u>metadata</u></li>
+							<li>Web standards</li>
+							<li class="fragment fade-down"><u><strong>scalability</strong></u></li>
+						</ul>
+					</p>
+
+					<aside class="notes">
+						Going back to David Best, we can see that using CMSs ticks almost all relevant boxes. But when you add a CMS with a metadatabase into the mix, everything becomes modular. You can create modules upon modules which deal with your content, easily introduce new content types, and change the way the audience you're engaging perceives your web application.
+					</aside>
+				</section>
+
+				<section>
+					<section>
+						<h2>Questions?</h2>
+					</section>
+					<section>
+						<h2>Thank you!</h2>
+					</section>
+				</section>
 			</div>
 		</div>
 
