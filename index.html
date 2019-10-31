@@ -37,7 +37,7 @@
 					</aside>
 				</section>
 
-				<section data-background-image="img/cobweb-dark.jpg">
+				<section data-background-image="img/database.jpg">
 					<section><h3>What I'm gonna talk about</h3></section>
 					<section>
 						<h4>Usual definition</h4>
@@ -305,7 +305,24 @@
 					<section>
 						<h4>Metadatabase CMS</h4>
 
-						<p>Relation is an attribute, therefore you only need to define it in your content type</p>
+						<p>Relation is an attribute, therefore you only need to define it in your content type.</p>
+
+						<p>When creating an object, and adding a relation, all of the additional work is done by the CMS.</p>
+					</section>
+				</section>
+
+				<section data-background-image="img/database.jpg">
+					<section>
+						<h3>SQL</h3>
+
+						<p class="fragment fade-down">Less raw SQL queries</p>
+						<p class="fragment fade-down">Brings your SQL game up!</p>
+
+						<aside class="notes">
+							<p>Since the heavy-lifting is done by the PHP API, you are bound to write less raw SQL queries.</p>
+
+							<p>In the very rare occasions you need to actually write an SQL query, that SQL query is bound to be more complex than average.</p>
+						</aside>
 					</section>
 				</section>
 
@@ -348,7 +365,30 @@
 					</section>
 				</section>
 
-				<section  data-background-image="img/coding-1.jpg">
+				<section data-background-image="img/guidelines.jpg">
+					<section>
+						<h3>Guidelines for success</h3>
+
+						<ul>
+							<li class="fragment fade-down">the PHP API is there for a reason - use it</li>
+							<li class="fragment fade-down">know when using a metadatabase is overkill</li>
+							<li class="fragment fade-down">caching is important</li>
+							<li class="fragment fade-down">if you need custom database tables, you're probably doing it wrong</li>
+							<li class="fragment fade-down">scrutinize the relations of your project</li>
+						</ul>
+
+						<aside class="notes">
+							<p>since these systems remove the need for custom SQL almost entirely, you need to know how to use the PHP API properly - read and reread the docs</p>
+							<p>These systems can be used for complex data structures. If you're working on a blog or a simple web-shop, I'd recommend other tools.</p>
+							<p>When working with thousands of entries in your database, you need to know when they're cached, how they're cached - this reduces loading times.</p>
+							<p>Because of the versatility of such products, there's almost no need for additional persistent objects in your database.</p>
+
+							<p>Relations are a must in these types of projects. You're gonna need to learn when to use a relation and in what manner.</p>
+						</aside>
+					</section>
+				</section>
+
+				<section data-background-image="img/coding-1.jpg">
 					<h3>Tenets of Web 2.0</h3>
 					<p>
 						<ul>
